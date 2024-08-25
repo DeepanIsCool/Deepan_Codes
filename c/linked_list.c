@@ -160,6 +160,29 @@ void DisplayR2L(N *temp)
     printf("%d-> ", temp->data);
 }
 
+void Insert_Sorted(int data)
+{
+    N *newNode = (N *)malloc(sizeof(N));
+    newNode->data = data;
+    newNode->link = NULL;
+
+    if (head == NULL || head->data >= data)
+    {
+        newNode->link = head;
+        head = newNode;
+    }
+    else
+    {
+        N *temp = head;
+        while (temp->link != NULL && temp->link->data < data)
+        {
+            temp = temp->link;
+        }
+        newNode->link = temp->link;
+        temp->link = newNode;
+    }
+}
+
 int main()
 {
     int choice, data, pos;
@@ -176,6 +199,7 @@ int main()
         printf("6. Delete from the beginning\n");
         printf("7. Delete from the end\n");
         printf("8. Delete from any position\n");
+        printf("9. Insert in sorted order(Provided the list is already sorted)\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -236,6 +260,15 @@ int main()
             printf("Enter the position to delete the node from: ");
             scanf("%d", &pos);
             DeleteAtPosition(pos);
+            DisplayL2R();
+            printf("\n");
+            break;
+
+        case 9:
+            printf("Enter the data to insert in sorted order: ");
+            scanf("%d", &data);
+            Insert_Sorted(data);
+            printf("Data inserted in sorted order.\n");
             DisplayL2R();
             printf("\n");
             break;
