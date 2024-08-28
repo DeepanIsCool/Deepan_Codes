@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#include <stdio.h>
-
 void tower(int n, char from, char to, char aux)
 {
     if (n == 1)
