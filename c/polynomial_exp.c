@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 // Structure to represent each term of the polynomial
-struct Node
+typedef struct Node
 {
     int coeff;
     int pow;
     struct Node *next;
-};
+} N;
 
 // Function to create a new node
-struct Node *create_node(int coeff, int pow)
+N *create_node(int coeff, int pow)
 {
-    struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
+    N *new_node = (N *)malloc(sizeof(N));
     new_node->coeff = coeff;
     new_node->pow = pow;
     new_node->next = NULL;
@@ -20,15 +20,15 @@ struct Node *create_node(int coeff, int pow)
 }
 
 // Function to insert a node at the end of the list
-void insert_node(struct Node **poly, int coeff, int pow)
+void insert_node(N **poly, int coeff, int pow)
 {
-    struct Node *new_node = create_node(coeff, pow);
+    N *new_node = create_node(coeff, pow);
     if (*poly == NULL)
     {
         *poly = new_node;
         return;
     }
-    struct Node *temp = *poly;
+    N *temp = *poly;
     while (temp->next != NULL)
     {
         temp = temp->next;
@@ -37,7 +37,7 @@ void insert_node(struct Node **poly, int coeff, int pow)
 }
 
 // Function to print the polynomial
-void show(struct Node *node)
+void show(N *node)
 {
     if (node == NULL)
     {
@@ -57,7 +57,7 @@ void show(struct Node *node)
 }
 
 // Function to create a polynomial based on user input
-void create_polynomial(struct Node **poly)
+void create_polynomial(N **poly)
 {
     int num_terms, coeff, pow;
     printf("Enter the number of terms in the polynomial: ");
@@ -72,9 +72,9 @@ void create_polynomial(struct Node **poly)
 }
 
 // Function to add two polynomials
-void polyadd(struct Node *poly1, struct Node *poly2, struct Node **poly)
+void polyadd(N *poly1, N *poly2, N **poly)
 {
-    struct Node *temp = NULL;
+    N *temp = NULL;
     while (poly1 != NULL && poly2 != NULL)
     {
         if (poly1->pow > poly2->pow)
@@ -115,7 +115,7 @@ void polyadd(struct Node *poly1, struct Node *poly2, struct Node **poly)
 // Driver code
 int main()
 {
-    struct Node *poly1 = NULL, *poly2 = NULL, *poly_sum = NULL;
+    N *poly1 = NULL, *poly2 = NULL, *poly_sum = NULL;
 
     printf("Creating first polynomial:\n");
     create_polynomial(&poly1);
