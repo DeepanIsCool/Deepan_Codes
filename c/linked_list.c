@@ -341,7 +341,7 @@ int main()
         printf("13.Reverse the linked list\n");
         printf("14.Delete all occurrences of a given element\n");
         printf("15.Merge two sorted linked lists into sorted order\n");
-        printf("Enter your choice: ");
+        printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
         switch (choice)
