@@ -276,48 +276,6 @@ void DeleteAllOccurrences(int data)
     }
 }
 
-void MergeSortedLists(N *List1, N *List2)
-{
-    N *temp1 = List1;
-    N *temp2 = List2;
-    N *TotalSorted = NULL;
-    N *temp = TotalSorted;
-    // while (temp1->link != NULL)
-    // {
-    //     temp1 = temp1->link;
-    // }
-    // while (temp2->link != NULL)
-    // {
-    //     temp2 = temp2->link;
-    // }
-    // temp1->link = temp2;
-    // BubbleSort();
-    while (temp1 != NULL && temp2 != NULL)
-    {
-        if (temp1->data < temp2->data || temp1->data == temp2->data)
-        {
-            TotalSorted->data = temp1->data;
-            temp1 = temp1->link;
-            TotalSorted = TotalSorted->link;
-            TotalSorted->data = temp2->data;
-        }
-        else if (temp1->data > temp2->data)
-        {
-            TotalSorted->data = temp2->data;
-            temp2 = temp2->link;
-            TotalSorted = TotalSorted->link;
-            TotalSorted->data = temp1->data;
-        }
-    }
-
-    printf("Merged sorted linked list: ");
-    while (temp != NULL)
-    {
-        printf("%d-> ", temp->data);
-        temp = temp->link;
-    }
-}
-
 int main()
 {
     int choice, data, pos;
@@ -340,7 +298,6 @@ int main()
         printf("12.Count the number of nodes\n");
         printf("13.Reverse the linked list\n");
         printf("14.Delete all occurrences of a given element\n");
-        printf("15.Merge two sorted linked lists into sorted order\n");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
@@ -458,30 +415,6 @@ int main()
             printf("\n");
             break;
 
-        case 15:
-        {
-            int n1, n2;
-            printf("Enter the number of elements in the first linked list: ");
-            scanf("%d", &n1);
-            printf("Enter the elements in sorted order: ");
-            for (int i = 0; i < n1; i++)
-            {
-                scanf("%d", &data);
-                Insert_Sorted(data);
-            }
-            printf("Enter the number of elements in the second linked list: ");
-            scanf("%d", &n2);
-            printf("Enter the elements in sorted order: ");
-            for (int i = 0; i < n2; i++)
-            {
-                scanf("%d", &data);
-                Insert_Sorted(data);
-            }
-            // provided 2 lists are created and sorted -> MergeSortedLists(List1, List2);
-            DisplayL2R();
-            printf("\n");
-            break;
-        }
         default:
             printf("Invalid choice! Please try again.\n");
             break;
