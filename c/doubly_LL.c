@@ -1,3 +1,82 @@
+/*
+Pseudocode for Doubly Linked List Operations
+
+1. Data Structure:
+   - Define a node structure with:
+     - data: Stores the value of the node.
+     - prev: Pointer to the previous node.
+     - next: Pointer to the next node.
+
+2. Insert at the End:
+   Function InsertAtEnd(data):
+     - Create a new node with the given data.
+     - If the list is empty (head == NULL):
+       - Set head = newNode.
+     - Else:
+       - Traverse to the last node (node with next == NULL).
+       - Set lastNode.next = newNode and newNode.prev = lastNode.
+
+3. Insert at the Beginning:
+   Function InsertAtBeginning(data):
+     - Create a new node with the given data.
+     - Set newNode.next = head and newNode.prev = NULL.
+     - If the list is not empty:
+       - Set head.prev = newNode.
+     - Update head = newNode.
+
+4. Insert at a Specific Position:
+   Function InsertAtPosition(data, pos):
+     - If pos == 1, call InsertAtBeginning(data).
+     - Otherwise:
+       - Traverse to the (pos - 1)th node.
+       - If position is out of range, print "Position out of range" and exit.
+       - Set newNode.next = currentNode.next and newNode.prev = currentNode.
+       - If currentNode.next is not NULL:
+         - Set currentNode.next.prev = newNode.
+       - Set currentNode.next = newNode.
+
+5. Delete from the Beginning:
+   Function DeleteAtBeginning():
+     - If the list is empty (head == NULL), print "List is empty" and exit.
+     - Save head in a temporary pointer.
+     - Update head = head.next.
+     - If head is not NULL, set head.prev = NULL.
+     - Free the temporary pointer.
+
+6. Delete from the End:
+   Function DeleteAtEnd():
+     - If the list is empty (head == NULL), print "List is empty" and exit.
+     - Traverse to the last node.
+     - If lastNode.prev is not NULL:
+       - Set lastNode.prev.next = NULL.
+     - Otherwise:
+       - Update head = NULL (list becomes empty).
+     - Free the last node.
+
+7. Display List from Left to Right:
+   Function DisplayL2R():
+     - Traverse the list from head to NULL.
+     - Print each node's data followed by "->".
+
+8. Display List from Right to Left:
+   Function DisplayR2L():
+     - Traverse to the last node.
+     - Traverse back from the last node to head using the prev pointer.
+     - Print each node's data followed by "->".
+
+9. Main Menu:
+   - Provide options for:
+     1. Insert at the beginning.
+     2. Insert at the end.
+     3. Insert at any position.
+     4. Display list from left to right.
+     5. Display list from right to left.
+     6. Delete from the beginning.
+     7. Delete from the end.
+     0. Exit.
+   - Execute the selected operation and repeat until the user chooses to exit.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

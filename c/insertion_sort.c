@@ -1,3 +1,31 @@
+/*
+Pseudocode for Insertion Sort:
+
+1. Function: INSERTION_SORT(arr, N)
+   Input:
+      - arr: Array of integers.
+      - N: Number of elements in the array.
+   Steps:
+      a. For i = 1 to N-1:
+         i. Set `key = arr[i]`.
+         ii. Set `j = i - 1`.
+         iii. While `j >= 0` and `arr[j] > key`:
+              - Shift `arr[j]` to `arr[j + 1]`.
+              - Decrement `j` by 1.
+         iv. Insert `key` at `arr[j + 1]`.
+
+2. MAIN Program
+   Steps:
+      a. Input size `N` of the array.
+      b. Declare an array `arr` of size `N`.
+      c. Input elements of the array into `arr`.
+      d. Print the original (unsorted) array.
+      e. Call `INSERTION_SORT(arr, N)` to sort the array.
+      f. Print the sorted array.
+
+3. End.
+*/
+
 #include <stdio.h>
 
 // Function to perform insertion sort

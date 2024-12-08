@@ -1,3 +1,56 @@
+/*
+Pseudocode for Merge Sort Algorithm:
+
+1. Function: MERGE(arr, left, mid, right)
+   Input:
+      - arr: Array of elements.
+      - left, mid, right: Indices defining two subarrays:
+        - First subarray: arr[left..mid].
+        - Second subarray: arr[mid+1..right].
+   Steps:
+      a. Calculate sizes of the subarrays:
+         - n1 = mid - left + 1.
+         - n2 = right - mid.
+      b. Create temporary arrays `leftArr[n1]` and `rightArr[n2]`.
+      c. Copy data to temporary arrays:
+         - Copy arr[left..mid] to `leftArr`.
+         - Copy arr[mid+1..right] to `rightArr`.
+      d. Initialize indices:
+         - i = 0 (index for `leftArr`).
+         - j = 0 (index for `rightArr`).
+         - k = left (index for merged array).
+      e. Merge elements back into arr[left..right]:
+         - While i < n1 and j < n2:
+             - If `leftArr[i] <= rightArr[j]`, copy `leftArr[i]` to `arr[k]` and increment i.
+             - Else, copy `rightArr[j]` to `arr[k]` and increment j.
+             - Increment k.
+      f. Copy any remaining elements:
+         - Copy remaining `leftArr` elements to `arr`.
+         - Copy remaining `rightArr` elements to `arr`.
+
+2. Function: MERGE_SORT(arr, left, right)
+   Input:
+      - arr: Array of elements.
+      - left, right: Indices defining the subarray to sort.
+   Steps:
+      a. If left < right:
+         - Calculate mid = left + (right - left) / 2.
+         - Recursively call MERGE_SORT(arr, left, mid) to sort the left half.
+         - Recursively call MERGE_SORT(arr, mid + 1, right) to sort the right half.
+         - Call MERGE(arr, left, mid, right) to merge the sorted halves.
+
+3. MAIN Program
+   Input:
+      a. Read the size `n` of the array.
+      b. Read `n` elements into `arr`.
+   Process:
+      a. Print the original array.
+      b. Call MERGE_SORT(arr, 0, n-1) to sort the array.
+      c. Print the sorted array.
+
+4. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

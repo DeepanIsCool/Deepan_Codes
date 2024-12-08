@@ -1,3 +1,27 @@
+/*
+Pseudocode for Recursive Binary Search
+
+1. Function binarySearch(arr[], low, high, x):
+   - Base Condition:
+     - If high >= low:
+       - Calculate mid as low + (high - low) / 2.
+       - If arr[mid] == x, return mid (element found).
+       - If arr[mid] > x, search in the left subarray:
+         Call binarySearch(arr, low, mid - 1, x).
+       - Otherwise, search in the right subarray:
+         Call binarySearch(arr, mid + 1, high, x).
+   - If high < low, return -1 (element not present).
+
+2. Main Function:
+   - Input n (size of the array) and dynamically allocate memory for arr[].
+   - Input n elements into arr[] in sorted order.
+   - Input x (the element to search for).
+   - Call binarySearch(arr, 0, n - 1, x) to perform the search:
+     - If the return value is -1, print "Element is not present in array."
+     - Otherwise, print "Element is present at index <index + 1>".
+   - Free the dynamically allocated memory.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

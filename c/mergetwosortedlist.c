@@ -1,3 +1,47 @@
+/*
+Pseudocode for Merging and Sorting Two Linked Lists:
+
+1. Define a Node Structure:
+   - Each node contains `data` and a pointer `link` to the next node.
+
+2. Functions:
+   a. **Insert At End**:
+      - Input: Pointer to the list (`list`) and data to insert (`data`).
+      - Create a new node.
+      - If the list is empty, make the new node the head.
+      - Otherwise, traverse to the last node and link it to the new node.
+
+   b. **Bubble Sort**:
+      - Input: Pointer to the list (`list`).
+      - Use nested loops to compare and swap adjacent nodes if out of order.
+      - Outer loop traverses the entire list.
+      - Inner loop compares each pair of adjacent nodes.
+
+   c. **Display From Left to Right**:
+      - Input: Pointer to the list (`list`).
+      - Traverse from head to end and print each node's data.
+
+   d. **Merge Two Sorted Lists**:
+      - Input: Two linked lists (`List1` and `List2`).
+      - Output: Merged list (`TotalSorted`).
+      - Traverse both lists simultaneously:
+         - Insert each node from `List1` and `List2` alternately into `TotalSorted`.
+         - Continue until one or both lists are fully traversed.
+
+3. MAIN Program:
+   a. Input:
+      - Read the number of elements and data for `List1` in sorted order.
+      - Read the number of elements and data for `List2` in sorted order.
+   b. Process:
+      - Display `List1` and `List2`.
+      - Call `MergeSortedLists` to merge `List1` and `List2` into `TotalSorted`.
+      - Call `BubbleSort` to sort `TotalSorted`.
+   c. Output:
+      - Display the final merged and sorted linked list (`TotalSorted`).
+
+4. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -80,60 +124,10 @@ void MergeSortedLists()
     N *temp3 = TotalSorted;
     while (temp1 != NULL && temp2 != NULL)
     {
-        if (temp1->data < temp2->data || temp1->data == temp2->data)
-        {
-            // N *newNode = (N *)malloc(sizeof(N));
-            // newNode->data = temp1->data;
-            // printf("%d,if\n", newNode->data);
-            // newNode->link = NULL;
-            // if (TotalSorted == NULL)
-            // {
-            //     TotalSorted = newNode;
-            //     DisplayL2R(TotalSorted);
-            // }
-            // else
-            // {
-            //     N *temp = TotalSorted;
-            //     while (temp->link != NULL)
-            //     {
-            //         temp = temp->link;
-            //     }
-            //     temp->link = newNode;
-            //     DisplayL2R(TotalSorted);
-            // }
-            // temp1 = temp1->link;
-            InsertAtEnd(&TotalSorted, temp1->data);
-            temp1 = temp1->link;
-            InsertAtEnd(&TotalSorted, temp2->data);
-            temp2 = temp2->link;
-        }
-        else if (temp1->data > temp2->data)
-        {
-            // N *newNode = (N *)malloc(sizeof(N));
-            // newNode->data = temp2->data;
-            // printf("%d,else if\n", newNode->data);
-            // newNode->link = NULL;
-            // if (TotalSorted == NULL)
-            // {
-            //     TotalSorted = newNode;
-            //     DisplayL2R(TotalSorted);
-            // }
-            // else
-            // {
-            //     N *temp = TotalSorted;
-            //     while (temp->link != NULL)
-            //     {
-            //         temp = temp->link;
-            //     }
-            //     temp->link = newNode;
-            //     DisplayL2R(TotalSorted);
-            // }
-            // temp2 = temp2->link;
-            InsertAtEnd(&TotalSorted, temp2->data);
-            temp2 = temp2->link;
-            InsertAtEnd(&TotalSorted, temp1->data);
-            temp1 = temp1->link;
-        }
+        InsertAtEnd(&TotalSorted, temp1->data);
+        temp1 = temp1->link;
+        InsertAtEnd(&TotalSorted, temp2->data);
+        temp2 = temp2->link;
     }
 }
 
@@ -146,22 +140,6 @@ int main()
     for (int i = 0; i < n1; i++)
     {
         scanf("%d", &data);
-        // N *newNode = (N *)malloc(sizeof(N));
-        // newNode->data = data;
-        // newNode->link = NULL;
-        // if (List1 == NULL)
-        // {
-        //     List1 = newNode;
-        // }
-        // else
-        // {
-        //     N *temp = List1;
-        //     while (temp->link != NULL)
-        //     {
-        //         temp = temp->link;
-        //     }
-        //     temp->link = newNode;
-        // }
         InsertAtEnd(&List1, data);
     }
 
@@ -171,35 +149,14 @@ int main()
     for (int i = 0; i < n2; i++)
     {
         scanf("%d", &data);
-        // N *newNode = (N *)malloc(sizeof(N));
-        // newNode->data = data;
-        // newNode->link = NULL;
-        // if (List2 == NULL)
-        // {
-        //     List2 = newNode;
-        // }
-        // else
-        // {
-        //     N *temp = List2;
-        //     while (temp->link != NULL)
-        //     {
-        //         temp = temp->link;
-        //     }
-        //     temp->link = newNode;
-        // }
         InsertAtEnd(&List2, data);
     }
     printf("List1: ");
     DisplayL2R(List1);
-    BubbleSort(List1);
-    printf("List1 after sorting: ");
-    DisplayL2R(List1);
     printf("List2: ");
     DisplayL2R(List2);
-    BubbleSort(List2);
-    printf("List2 after sorting: ");
-    DisplayL2R(List2);
     MergeSortedLists();
+    BubbleSort(TotalSorted);
     printf("Merged sorted linked list: ");
     DisplayL2R(TotalSorted);
     printf("\n");

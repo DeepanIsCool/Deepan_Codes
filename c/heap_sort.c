@@ -1,3 +1,52 @@
+/*
+Pseudocode for Heap Sort:
+
+1. Function: HEAPIFY(arr, n, i)
+   Input:
+      - arr: Array of elements.
+      - n: Size of the heap.
+      - i: Index of the current node.
+   Steps:
+      a. Initialize `maximum = i`.
+      b. Calculate `left_index = 2 * i + 1` and `right_index = 2 * i + 2`.
+      c. Compare left child (`arr[left_index]`) with `arr[maximum]`:
+         - If left child exists (`left_index < n`) and is greater, set `maximum = left_index`.
+      d. Compare right child (`arr[right_index]`) with `arr[maximum]`:
+         - If right child exists (`right_index < n`) and is greater, set `maximum = right_index`.
+      e. If `maximum != i`, swap `arr[i]` and `arr[maximum]`, and recursively call `HEAPIFY(arr, n, maximum)`.
+
+2. Function: HEAPSORT(arr, n)
+   Input:
+      - arr: Array of elements.
+      - n: Number of elements in the array.
+   Steps:
+      a. Build the max heap:
+         - Iterate from `n / 2 - 1` to `0` (backwards):
+           - Call `HEAPIFY(arr, n, i)` for each index `i`.
+      b. Perform heap sort:
+         - Iterate from `n - 1` to `1` (backwards):
+           - Swap `arr[0]` (root of heap) with `arr[i]`.
+           - Reduce heap size to `i`.
+           - Call `HEAPIFY(arr, i, 0)` to restore heap properties.
+
+3. Function: PRINT_ARRAY(arr, n)
+   Input:
+      - arr: Array of elements.
+      - n: Number of elements in the array.
+   Steps:
+      a. Iterate over the array elements and print each value.
+
+4. MAIN Program
+   Steps:
+      a. Input array size `n`.
+      b. Input array elements into `arr`.
+      c. Call `PRINT_ARRAY(arr, n)` to display the original array.
+      d. Call `HEAPSORT(arr, n)` to sort the array.
+      e. Call `PRINT_ARRAY(arr, n)` to display the sorted array.
+
+5. End.
+*/
+
 #include <stdio.h>
 
 // Heapify function

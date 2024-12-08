@@ -1,3 +1,49 @@
+/*
+Pseudocode for Kruskal's Algorithm:
+
+1. Initialize:
+   a. `n`: Number of vertices.
+   b. `cost`: Cost adjacency matrix for the graph.
+   c. `parent`: Array to track connected components.
+   d. `mincost`: Total cost of the Minimum Spanning Tree (MST), initialized to 0.
+   e. `ne`: Edge counter, initialized to 1.
+
+2. Input:
+   a. Accept the number of vertices `n`.
+   b. Accept the cost adjacency matrix `cost`:
+      - Replace 0 with a large value (e.g., 999) for disconnected edges.
+
+3. Kruskal's Algorithm:
+   a. Repeat until `ne < n` (MST will have `n-1` edges):
+      i. Find the smallest cost edge `(u, v)` in the `cost` matrix.
+         - Update `min` with the smallest edge weight.
+         - Track the vertices `u` and `v` connected by this edge.
+      ii. Check if including this edge forms a cycle:
+         - Use the `FIND` function to determine the root of `u` and `v`.
+         - If roots are different, include the edge in the MST.
+         - Increment `ne` and add the edge weight to `mincost`.
+         - Mark the edge as used by setting `cost[u][v]` and `cost[v][u]` to 999.
+
+4. FIND Function:
+   Input:
+      - A vertex `i`.
+   Steps:
+      - Traverse the `parent` array to find the root of the component containing `i`.
+
+5. UNION Function:
+   Input:
+      - Vertices `i` and `j`.
+   Steps:
+      - If `i` and `j` are in different components, union them by updating the `parent` array and return true.
+      - Otherwise, return false.
+
+6. Output:
+   a. Print the edges in the MST with their weights.
+   b. Print the total minimum cost of the MST.
+
+7. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 int i, j, k, a, b, u, v, n, ne = 1;

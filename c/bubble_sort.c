@@ -1,3 +1,36 @@
+/*
+Pseudocode for Optimized Bubble Sort Program
+
+1. Swap Function:
+   - Input: Two integer pointers `xp` and `yp`.
+   - Perform the following steps:
+     - Store the value of `*xp` in a temporary variable.
+     - Assign the value of `*yp` to `*xp`.
+     - Assign the temporary variable's value to `*yp`.
+
+2. Optimized Bubble Sort:
+   Function bubbleSort(arr[], n):
+   - Input: Array `arr` of size `n`.
+   - For i = 0 to n - 2:
+       - Initialize `swapped` to false.
+       - For j = 0 to n - i - 2:
+           - If arr[j] > arr[j + 1], swap them using `swap()`.
+           - Set `swapped` to true.
+       - If `swapped` is false (no swaps made in the inner loop), break the loop.
+
+3. Print Array:
+   Function printArray(arr[], size):
+   - Input: Array `arr` of size `size`.
+   - Iterate from 0 to `size - 1`, printing each element of `arr`.
+
+4. Main Function:
+   - Input: Read the size of the array `n` from the user.
+   - Declare an array `arr` of size `n`.
+   - Read `n` elements into the array from the user.
+   - Call `bubbleSort(arr, n)` to sort the array.
+   - Call `printArray(arr, n)` to display the sorted array.
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 

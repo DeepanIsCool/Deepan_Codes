@@ -1,3 +1,76 @@
+/*
+Pseudocode for Circular Linked List Operations
+
+1. Data Structure:
+   - Define a node structure with:
+     - data: Stores the integer value of the node.
+     - link: Pointer to the next node.
+
+2. Insert at the End:
+   Function InsertAtEnd(data):
+     - Create a new node with the given data.
+     - If the list is empty (head == NULL):
+       - Set head = newNode, and make newNode.link = head.
+     - Else:
+       - Traverse the list to the last node (node with link pointing to head).
+       - Set lastNode.link = newNode, and newNode.link = head.
+
+3. Insert at the Beginning:
+   Function InsertAtBeginning(data):
+     - Create a new node with the given data.
+     - If the list is empty (head == NULL):
+       - Set head = newNode, and make newNode.link = head.
+     - Else:
+       - Traverse the list to the last node.
+       - Set lastNode.link = newNode, newNode.link = head, and head = newNode.
+
+4. Insert at a Specific Position:
+   Function InsertAtPosition(data, pos):
+     - If pos == 1, call InsertAtBeginning(data).
+     - Otherwise:
+       - Traverse the list to the (pos - 1)th node.
+       - If position is out of range, print "Position out of range" and exit.
+       - Create a new node and set newNode.link = currentNode.link, currentNode.link = newNode.
+
+5. Delete from the Beginning:
+   Function DeleteAtBeginning():
+     - If the list is empty (head == NULL):
+       - Print "List is empty, nothing to delete" and exit.
+     - If there is only one node:
+       - Free the node and set head = NULL.
+     - Else:
+       - Traverse the list to the last node.
+       - Set lastNode.link = head.link, free head, and update head = head.link.
+
+6. Delete from the End:
+   Function DeleteAtEnd():
+     - If the list is empty (head == NULL):
+       - Print "List is empty, nothing to delete" and exit.
+     - If there is only one node:
+       - Free the node and set head = NULL.
+     - Else:
+       - Traverse to the second-last node.
+       - Free the last node and set secondLastNode.link = head.
+
+7. Display Circular Linked List:
+   Function DisplayL2R():
+     - If the list is empty (head == NULL):
+       - Print "List is empty" and exit.
+     - Start from head and traverse until the list loops back to head.
+     - Print each node's data followed by "->", and end with "(HEAD)".
+
+8. Main Menu:
+   - Provide options for:
+     1. Insert at the beginning.
+     2. Insert at the end.
+     3. Insert at any position.
+     4. Display the list.
+     5. Delete from the beginning.
+     6. Delete from the end.
+     0. Exit.
+   - Execute the selected operation and repeat until the user chooses to exit.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

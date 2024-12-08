@@ -1,3 +1,84 @@
+/*
+Pseudocode for Binary Search Tree Implementation
+
+1. Binary Tree Node Structure:
+   - Define a structure for a tree node:
+     - key: Stores the node's value.
+     - left: Pointer to the left child.
+     - right: Pointer to the right child.
+
+2. Create a New Node:
+   Function newNodeCreate(value):
+     - Allocate memory for a new node.
+     - Set key = value.
+     - Initialize left and right pointers to NULL.
+     - Return the new node.
+
+3. Insert a Node:
+   Function insertNode(node, value):
+     - If node is NULL, create a new node with value and return it.
+     - If value < node.key, insert into the left subtree.
+     - If value > node.key, insert into the right subtree.
+     - Return the updated node.
+
+4. Search for a Node:
+   Function searchNode(root, target):
+     - If root is NULL or root.key == target, return root.
+     - If target < root.key, search in the left subtree.
+     - Otherwise, search in the right subtree.
+
+5. Traversals:
+   - In-order Traversal (Left, Root, Right):
+     Function inOrder(root):
+       - If root is not NULL:
+         - Traverse the left subtree.
+         - Print root.key.
+         - Traverse the right subtree.
+   - Pre-order Traversal (Root, Left, Right):
+     Function preOrder(root):
+       - If root is not NULL:
+         - Print root.key.
+         - Traverse the left subtree.
+         - Traverse the right subtree.
+   - Post-order Traversal (Left, Right, Root):
+     Function postOrder(root):
+       - If root is not NULL:
+         - Traverse the left subtree.
+         - Traverse the right subtree.
+         - Print root.key.
+
+6. Find Minimum Value:
+   Function findMin(root):
+     - If root is NULL, return NULL.
+     - If root.left is NULL, return root.
+     - Otherwise, recursively find the minimum in the left subtree.
+
+7. Delete a Node:
+   Function deleteNode(root, x):
+     - If root is NULL, return NULL.
+     - If x < root.key, delete from the left subtree.
+     - If x > root.key, delete from the right subtree.
+     - If root.key == x:
+       - If root has no children, free the node and return NULL.
+       - If root has one child, replace root with the child and free the node.
+       - If root has two children:
+         - Find the minimum value in the right subtree.
+         - Replace root.key with this minimum value.
+         - Delete the minimum value node from the right subtree.
+     - Return the updated root.
+
+8. Main Menu:
+   - Provide options for:
+     1. Insert a value.
+     2. Search for a value.
+     3. Delete a value.
+     4. Perform in-order traversal.
+     5. Perform pre-order traversal.
+     6. Perform post-order traversal.
+     7. Exit the program.
+   - Execute the selected operation and continue until the user chooses to exit.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
