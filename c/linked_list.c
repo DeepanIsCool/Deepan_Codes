@@ -1,3 +1,136 @@
+/*
+Detailed Pseudocode for Linked List Operations:
+
+1. Define Node Structure:
+   - Each node contains:
+     - `data`: Integer data of the node.
+     - `link`: Pointer to the next node.
+
+2. Core Linked List Operations:
+
+   a. **Insert At End**:
+      - Input: Data value to insert.
+      - Create a new node with the given `data`.
+      - If the list is empty:
+         - Set the `head` to the new node.
+      - Else:
+         - Traverse the list to the last node.
+         - Update the last node's `link` to point to the new node.
+      - End.
+
+   b. **Insert At Beginning**:
+      - Input: Data value to insert.
+      - Create a new node with the given `data`.
+      - Set the new node's `link` to the current `head`.
+      - Update the `head` to the new node.
+      - End.
+
+   c. **Insert At Position**:
+      - Input: Data value and position `pos`.
+      - Create a new node with the given `data`.
+      - If `pos == 1`:
+         - Insert at the beginning using the **Insert At Beginning** method.
+      - Else:
+         - Traverse to the node at `pos - 1`.
+         - If position is invalid (node at `pos - 1` is NULL), print an error.
+         - Otherwise:
+            - Set the new node's `link` to the `link` of the node at `pos - 1`.
+            - Update the node at `pos - 1` to point to the new node.
+      - End.
+
+   d. **Delete At Beginning**:
+      - Check if the list is empty. If true, print "List is empty".
+      - Otherwise:
+         - Save the `head` node in a temporary variable.
+         - Update `head` to point to the second node.
+         - Free the memory of the old head node.
+      - End.
+
+   e. **Delete At End**:
+      - Check if the list is empty. If true, print "List is empty".
+      - If the list has one node:
+         - Free the `head` and set `head` to NULL.
+      - Else:
+         - Traverse to the second-last node.
+         - Free the memory of the last node and set the second-last node's `link` to NULL.
+      - End.
+
+   f. **Delete At Position**:
+      - Input: Position `pos`.
+      - If `pos == 1`, delete the first node using **Delete At Beginning**.
+      - Else:
+         - Traverse to the node at `pos - 1`.
+         - If position is invalid, print "Position out of range".
+         - Otherwise:
+            - Update the node at `pos - 1` to skip the target node.
+            - Free the memory of the target node.
+      - End.
+
+   g. **Display From Left to Right**:
+      - Input: `head` of the list.
+      - Traverse the list from the `head` to NULL, printing each node's `data`.
+
+   h. **Display From Right to Left (Recursive)**:
+      - Input: `head` of the list.
+      - If the list is not empty:
+         - Recursively call the function on the next node.
+         - Print the `data` of the current node.
+
+   i. **Insert in Sorted Order**:
+      - Input: Data value to insert.
+      - Create a new node with the given `data`.
+      - If the list is empty or `head->data >= data`:
+         - Insert at the beginning using **Insert At Beginning**.
+      - Else:
+         - Traverse to the node where `data` can be inserted in sorted order.
+         - Insert the new node at the correct position.
+      - End.
+
+   j. **Linear Search**:
+      - Input: Data value to search.
+      - Traverse the list, comparing each node's `data` with the target value.
+      - If found, return the position (1-based index).
+      - If not found, return -1.
+
+   k. **Bubble Sort**:
+      - Input: `head` of the list.
+      - Perform nested traversal:
+         - Compare adjacent nodes.
+         - Swap their `data` if out of order.
+      - Repeat until the list is sorted.
+      - End.
+
+   l. **Count Nodes**:
+      - Input: `head` of the list.
+      - Traverse the list, incrementing a counter for each node.
+      - Return the count.
+
+   m. **Reverse Linked List**:
+      - Input: `head` of the list.
+      - Use three pointers (`prev`, `current`, `next`) to reverse the links.
+      - Update `head` to the last node.
+      - End.
+
+   n. **Delete All Occurrences of a Value**:
+      - Input: Data value to delete.
+      - Traverse the list:
+         - If the current node matches the value:
+            - Update the previous node's `link` to skip the current node.
+            - Free the current node.
+         - Else:
+            - Move to the next node.
+      - End.
+
+3. MAIN Program:
+   - Display a menu for the user to choose operations.
+   - Take user input for the choice and required parameters.
+   - Call the corresponding function for each choice.
+   - Exit the program when the user selects "Exit".
+   - Ensure memory cleanup before exiting.
+
+4. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

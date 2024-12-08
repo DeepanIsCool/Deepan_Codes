@@ -1,3 +1,76 @@
+/*
+Pseudocode for Linked List-Based Queue Implementation
+
+1. Data Structures:
+   - Define a `Node` structure:
+     - data: Stores the value of the node.
+     - next: Pointer to the next node in the queue.
+   - Define a `Queue` structure:
+     - front: Pointer to the front node of the queue.
+     - rear: Pointer to the rear node of the queue.
+
+2. Create a New Node:
+   Function createNode(data):
+     - Allocate memory for a new node.
+     - If memory allocation fails, return NULL.
+     - Set newNode.data = data and newNode.next = NULL.
+     - Return the new node.
+
+3. Create a New Queue:
+   Function createQueue():
+     - Allocate memory for a new queue.
+     - If memory allocation fails, return NULL.
+     - Set front = NULL and rear = NULL.
+     - Return the new queue.
+
+4. Check if the Queue is Empty:
+   Function isEmpty(queue):
+     - Return true if queue.front == NULL, otherwise false.
+
+5. Add an Element to the Queue (Enqueue):
+   Function enqueue(queue, data):
+     - Create a new node with the given data.
+     - If memory allocation fails, print "Queue Overflow!" and exit.
+     - If queue.rear == NULL (queue is empty):
+       - Set queue.front = queue.rear = newNode.
+     - Otherwise:
+       - Set queue.rear.next = newNode and update queue.rear = newNode.
+     - Print "Enqueued <data>".
+
+6. Remove an Element from the Queue (Dequeue):
+   Function dequeue(queue):
+     - If queue is empty (queue.front == NULL):
+       - Print "Queue Underflow!" and return -1.
+     - Store the value of queue.front.data in a variable `data`.
+     - Update queue.front = queue.front.next.
+     - If queue.front == NULL (queue is now empty), set queue.rear = NULL.
+     - Free the memory of the dequeued node.
+     - Return `data`.
+
+7. Get the Front Element (Peek):
+   Function peek(queue):
+     - If queue is empty, print "Queue is empty!" and return -1.
+     - Return queue.front.data.
+
+8. Print the Queue:
+   Function printQueue(queue):
+     - If queue is empty, print "Queue is empty!" and exit.
+     - Traverse from queue.front to queue.rear and print each node's data.
+
+9. Main Menu-Driven Program:
+   - Initialize a queue using createQueue().
+   - Display the menu with options:
+     1. Enqueue: Add an element to the queue.
+     2. Dequeue: Remove an element from the queue.
+     3. Peek: Display the front element of the queue.
+     4. Print Queue: Display all elements in the queue.
+     5. Exit: Exit the program.
+   - Execute the selected operation and repeat until the user chooses to exit.
+   - Before exiting:
+     - Dequeue all elements to free memory.
+     - Free the queue structure.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

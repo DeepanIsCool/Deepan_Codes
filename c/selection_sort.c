@@ -1,3 +1,31 @@
+/*
+Pseudocode for Selection Sort Algorithm
+
+1. Selection Sort:
+   Function selectionSort(arr, n):
+     - Input: Array `arr` of size `n`.
+     - For each position `i` from 0 to `n - 2`:
+       - Assume the current position holds the minimum element:
+         Set `min_idx = i`.
+       - Iterate through the unsorted portion (`j = i + 1` to `n - 1`):
+         - If `arr[j] < arr[min_idx]`, update `min_idx = j`.
+       - Swap `arr[i]` and `arr[min_idx]` to move the minimum element to its correct position.
+
+2. Print Array:
+   Function printArray(arr, n):
+     - Input: Array `arr` of size `n`.
+     - Iterate from 0 to `n - 1`, printing each element of the array.
+
+3. Main Function:
+   - Input the size of the array (`n`) and declare an array `arr[]` of size `n`.
+   - Input the elements of the array.
+   - Print the original array using `printArray`.
+   - Call `selectionSort(arr, n)` to sort the array.
+   - Print the sorted array using `printArray`.
+
+4. End.
+*/
+
 #include <stdio.h>
 
 // Function to perform selection sort

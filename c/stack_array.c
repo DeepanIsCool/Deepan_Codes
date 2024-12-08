@@ -1,3 +1,43 @@
+/*
+Pseudocode for Stack Operations Using Array:
+
+1. Initialize:
+   - Declare `stack` array, `top = -1`, and `n` (maximum size of the stack).
+
+2. MAIN Program:
+   - Input the size `n` of the stack.
+   - While `choice != 4`:
+      a. Display menu:
+         - Options: Push, Pop, Show, Exit.
+      b. Take user input for `choice`.
+      c. Perform operation based on `choice`:
+         i. If `choice == 1`, call `PUSH`.
+         ii. If `choice == 2`, call `POP`.
+         iii. If `choice == 3`, call `SHOW`.
+         iv. If `choice == 4`, print "Exiting...".
+         v. Otherwise, print "Invalid choice".
+
+3. Function: PUSH()
+   - Input a value `val`.
+   - If `top == n - 1` (stack full), print "Overflow".
+   - Else:
+      - Increment `top`.
+      - Insert `val` at `stack[top]`.
+   - Call `SHOW` to display the stack.
+
+4. Function: POP()
+   - If `top == -1` (stack empty), print "Underflow".
+   - Else:
+      - Decrement `top`.
+   - Call `SHOW` to display the stack.
+
+5. Function: SHOW()
+   - Print all elements in the stack from `stack[top]` to `stack[0]`.
+   - If `top == -1`, print "Stack is empty".
+
+6. End.
+*/
+
 #include <stdio.h>
 
 int stack[100], i, j, choice = 0, n, top = -1;

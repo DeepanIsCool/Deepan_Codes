@@ -1,3 +1,43 @@
+/*
+Pseudocode for QuickSort Algorithm
+
+1. Swap Function:
+   Function swap(a, b):
+     - Input: Pointers to two integers `a` and `b`.
+     - Swap the values of `a` and `b` using a temporary variable.
+
+2. Partition Function:
+   Function partition(arr, low, high):
+     - Input: Array `arr`, lower bound `low`, and upper bound `high`.
+     - Select the pivot element as `arr[low]`.
+     - Initialize pointers `i = low` and `j = high`.
+     - While `i < j`:
+       - Increment `i` until `arr[i] > pivot`.
+       - Decrement `j` until `arr[j] <= pivot`.
+       - If `i < j`, swap `arr[i]` and `arr[j]`.
+     - Swap `arr[low]` (pivot) with `arr[j]` to place the pivot in its correct position.
+     - Return `j` (partition index).
+
+3. QuickSort Function:
+   Function quickSort(arr, low, high):
+     - Input: Array `arr`, lower bound `low`, and upper bound `high`.
+     - If `low < high`:
+       - Call `partition(arr, low, high)` to partition the array and get the partition index `pi`.
+       - Recursively sort the left subarray (`arr[low..pi-1]`).
+       - Recursively sort the right subarray (`arr[pi+1..high]`).
+
+4. Print Array Function:
+   Function printArray(arr, size):
+     - Input: Array `arr` and its size.
+     - Iterate over the array and print each element.
+
+5. Main Function:
+   - Input the size of the array (`n`) and elements of the array (`arr[]`).
+   - Print the original array using `printArray`.
+   - Call `quickSort(arr, 0, n-1)` to sort the array.
+   - Print the sorted array using `printArray`.
+*/
+
 #include <stdio.h>
 
 // Swap function to interchange two values

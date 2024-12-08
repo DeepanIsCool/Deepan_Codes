@@ -1,3 +1,40 @@
+/*
+Pseudocode for Sparse Matrix Representation Using Arrays
+
+1. Input Sparse Matrix:
+   - Define a 2D array `sparseMatrix` to represent a sparse matrix (mostly zeroes).
+
+2. Count Non-Zero Elements:
+   - Initialize `size = 0`.
+   - For each element `sparseMatrix[i][j]`:
+     - If `sparseMatrix[i][j] != 0`, increment `size`.
+
+3. Create Compact Matrix:
+   - Allocate memory for a 2D array `compactMatrix` of size 3 x `size`.
+   - Each row in `compactMatrix` represents:
+     - Row indices of non-zero elements.
+     - Column indices of non-zero elements.
+     - Values of the non-zero elements.
+
+4. Populate Compact Matrix:
+   - Initialize `k = 0` (index for compactMatrix columns).
+   - For each element `sparseMatrix[i][j]`:
+     - If `sparseMatrix[i][j] != 0`:
+       - Set `compactMatrix[0][k] = i` (row index).
+       - Set `compactMatrix[1][k] = j` (column index).
+       - Set `compactMatrix[2][k] = sparseMatrix[i][j]` (value).
+       - Increment `k`.
+
+5. Display Compact Matrix:
+   - For each row in `compactMatrix`:
+     - Print all elements in the row.
+
+6. Free Allocated Memory:
+   - Free the memory allocated for each row of `compactMatrix`.
+   - Free the memory allocated for `compactMatrix`.
+
+7. End.
+*/
 
 // C program for Sparse Matrix Representation
 // using Array

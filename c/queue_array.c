@@ -1,3 +1,57 @@
+/*
+Pseudocode for Static Array-Based Queue Implementation
+
+1. Data Structure:
+   - Use an array `queue[MAXSIZE]` to store the elements.
+   - Use two pointers:
+     - `front`: Points to the front element of the queue.
+     - `rear`: Points to the rear element of the queue.
+   - Initialize:
+     - `front = -1`, `rear = -1`.
+
+2. Insert an Element (Enqueue):
+   Function insert():
+     - Input: An integer `item` to insert.
+     - If `rear == MAXSIZE - 1`:
+       - Print "Queue Overflow! Cannot insert element."
+       - Exit.
+     - If `front == -1 && rear == -1` (queue is empty):
+       - Set `front = 0` and `rear = 0`.
+     - Otherwise:
+       - Increment `rear`.
+     - Set `queue[rear] = item`.
+     - Print "Value inserted into the queue."
+
+3. Delete an Element (Dequeue):
+   Function delete():
+     - If `front == -1 || front > rear` (queue is empty):
+       - Print "Queue Underflow! Cannot delete element."
+       - Exit.
+     - Retrieve the element at `queue[front]`.
+     - If `front == rear` (only one element in the queue):
+       - Set `front = -1` and `rear = -1` (queue becomes empty).
+     - Otherwise:
+       - Increment `front`.
+     - Print "Value deleted from the queue."
+
+4. Display the Queue:
+   Function display():
+     - If `front == -1` (queue is empty):
+       - Print "The queue is empty."
+       - Exit.
+     - Print all elements in the queue from `front` to `rear`.
+
+5. Main Menu:
+   - Provide options for:
+     1. Insert an element.
+     2. Delete an element.
+     3. Display the queue.
+     4. Exit the program.
+   - Execute the selected operation and repeat until the user chooses to exit.
+
+6. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

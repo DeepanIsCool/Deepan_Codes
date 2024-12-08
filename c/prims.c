@@ -1,3 +1,35 @@
+/*
+Pseudocode for Prim's Algorithm (Minimum Spanning Tree)
+
+1. Input:
+   - Read the number of nodes `n`.
+   - Read the adjacency matrix `cost[i][j]` for the graph:
+     - If `cost[i][j] == 0` (no edge exists), set `cost[i][j] = 999` (infinity).
+
+2. Initialization:
+   - Mark the first node as visited: `visited[1] = 1`.
+   - Initialize `mincost = 0` (to store the total cost of the MST).
+   - Set `ne = 1` (to count the edges in the MST).
+
+3. Construct the MST:
+   While `ne < n` (not all nodes are connected):
+     - Find the minimum cost edge `(u, v)`:
+       - Iterate through all nodes `i` and `j`:
+         - If `cost[i][j] < min` and `i` is visited (`visited[i] != 0`):
+           - Update `min = cost[i][j]` and save `(u, v)` as the edge.
+     - If `u` or `v` is unvisited:
+       - Add edge `(u, v)` to the MST and increment `ne`.
+       - Update `mincost = mincost + min`.
+       - Mark node `v` as visited: `visited[v] = 1`.
+     - Mark edge `(u, v)` as used by setting `cost[u][v] = cost[v][u] = 999`.
+
+4. Output:
+   - Print each edge of the MST and its cost.
+   - Print the total cost of the MST (`mincost`).
+
+5. End.
+*/
+
 #include <stdio.h>
 
 int a, b, u, v, n, i, j, ne = 1;

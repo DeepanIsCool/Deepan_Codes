@@ -1,3 +1,46 @@
+/*
+Pseudocode for Sparse Matrix Representation Using Linked Lists
+
+1. Node Structure:
+   - Define a node with:
+     - value: The non-zero element from the sparse matrix.
+     - row_position: Row index of the element.
+     - column_position: Column index of the element.
+     - next: Pointer to the next node.
+
+2. Create a New Node:
+   Function create_new_node(start, non_zero_element, row_index, column_index):
+     - Input: Pointer to the head of the list `start`, value of the non-zero element `non_zero_element`,
+       and its position (`row_index`, `column_index`).
+     - If `start` is NULL (empty list):
+       - Dynamically allocate memory for a new node.
+       - Set the node's `value`, `row_position`, `column_position`, and `next = NULL`.
+       - Update `start` to point to the new node.
+     - Else:
+       - Traverse to the end of the linked list.
+       - Dynamically allocate memory for a new node.
+       - Set the node's `value`, `row_position`, `column_position`, and `next = NULL`.
+       - Link the new node to the last node in the list.
+
+3. Print Linked List:
+   Function PrintList(start):
+     - Input: Pointer to the head of the list `start`.
+     - Traverse the list and print:
+       - `row_position` values of all nodes.
+       - `column_position` values of all nodes.
+       - `value` of all nodes.
+
+4. Main Function:
+   - Define the sparse matrix as a 2D array `sparseMatrix`.
+   - Initialize an empty linked list `start = NULL`.
+   - For each element `sparseMatrix[i][j]`:
+     - If the element is non-zero:
+       - Call `create_new_node(&start, sparseMatrix[i][j], i, j)` to add the element to the linked list.
+   - Call `PrintList(start)` to display the linked list representation of the sparse matrix.
+
+5. End.
+*/
+
 // C program for Sparse Matrix Representation
 // using Linked Lists
 #include <stdio.h>

@@ -1,3 +1,59 @@
+/*
+Pseudocode for Stack Implementation Using Linked List:
+
+1. Define Node Structure:
+   - A node contains:
+     - `data`: Integer data of the node.
+     - `next`: Pointer to the next node.
+
+2. Linked List Utility Functions:
+   a. **CREATE_NODE(data)**:
+      - Allocate memory for a new node.
+      - If allocation fails, return NULL.
+      - Assign `data` and set `next` to NULL.
+      - Return the pointer to the new node.
+   b. **INSERT_BEFORE_HEAD(head, data)**:
+      - Create a new node with `data`.
+      - If memory allocation fails, return error code (-1).
+      - Set the new node's `next` to point to the current head.
+      - Update head to point to the new node.
+   c. **DELETE_HEAD(head)**:
+      - If the list is empty, return error code (-1).
+      - Set a temporary pointer to the current head.
+      - Update head to the next node.
+      - Free the memory of the temporary pointer.
+
+3. Stack Functions:
+   a. **IS_EMPTY(stack)**:
+      - Return true if stack (head pointer) is NULL.
+   b. **PUSH(stack, data)**:
+      - Use `INSERT_BEFORE_HEAD(stack, data)` to insert the new element.
+      - Print success message or handle memory allocation failure.
+   c. **POP(stack)**:
+      - If `IS_EMPTY(stack)` returns true, print underflow message and return -1.
+      - Retrieve the data from the head node.
+      - Call `DELETE_HEAD(stack)` to remove the top element.
+      - Return the retrieved data.
+   d. **PEEK(stack)**:
+      - If `IS_EMPTY(stack)` returns true, print empty stack message and return -1.
+      - Return the `data` of the head node.
+   e. **PRINT_STACK(stack)**:
+      - If `IS_EMPTY(stack)` returns true, print empty stack message.
+      - Otherwise, traverse the linked list and print each node's data.
+
+4. MAIN Program:
+   a. Initialize `stack` as NULL.
+   b. Display menu with options:
+      - Push, Pop, Peek, Print Stack, Exit.
+   c. Take user input for choice and perform the corresponding operation:
+      - For Push, take the value to push and call `PUSH(stack, value)`.
+      - For Pop, call `POP(stack)` and display the popped value if valid.
+      - For Peek, call `PEEK(stack)` and display the top element if valid.
+      - For Print Stack, call `PRINT_STACK(stack)`.
+      - For Exit, free all memory using repeated calls to `POP(stack)` and terminate.
+      - For invalid input, display an error message.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

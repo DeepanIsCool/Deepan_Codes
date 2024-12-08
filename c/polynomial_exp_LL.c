@@ -1,3 +1,64 @@
+/*
+Pseudocode for Linked List-Based Polynomial Addition
+
+1. Data Structure:
+   - Define a node structure `Node` with:
+     - coeff: Coefficient of the term.
+     - pow: Power of the term.
+     - next: Pointer to the next node.
+
+2. Create a New Node:
+   Function create_node(coeff, pow):
+     - Allocate memory for a new node.
+     - Set the node's `coeff` to `coeff` and `pow` to `pow`.
+     - Initialize `next` to NULL.
+     - Return the new node.
+
+3. Insert Node at the End:
+   Function insert_node(poly, coeff, pow):
+     - Input: Pointer to the polynomial list `poly`, `coeff`, and `pow`.
+     - Create a new node with the given `coeff` and `pow`.
+     - If `poly` is empty, set `poly` to the new node and return.
+     - Otherwise, traverse to the last node and set its `next` to the new node.
+
+4. Display Polynomial:
+   Function show(node):
+     - Input: Pointer to the head of the polynomial list.
+     - If the list is empty, print "0".
+     - Traverse through the list:
+       - Print each term in the format `coeffx^pow`.
+       - Add a " + " separator between terms if applicable.
+
+5. Create Polynomial from User Input:
+   Function create_polynomial(poly):
+     - Input: Pointer to the polynomial list `poly`.
+     - Prompt the user to enter the number of terms.
+     - For each term:
+       - Prompt the user for the coefficient and power.
+       - Insert the term into the polynomial list using `insert_node`.
+
+6. Add Two Polynomials:
+   Function polyadd(poly1, poly2, poly):
+     - Input: Pointers to the two polynomial lists `poly1` and `poly2`, and a pointer to the result list `poly`.
+     - While both `poly1` and `poly2` are not NULL:
+       - If `poly1`'s power > `poly2`'s power:
+         - Insert `poly1`'s term into `poly` and advance `poly1`.
+       - If `poly1`'s power < `poly2`'s power:
+         - Insert `poly2`'s term into `poly` and advance `poly2`.
+       - Otherwise (same power):
+         - Add the coefficients, insert the result into `poly`, and advance both `poly1` and `poly2`.
+     - Add any remaining terms from `poly1` or `poly2` to `poly`.
+
+7. Driver Code:
+   - Create three polynomials: `poly1`, `poly2`, and `poly_sum`.
+   - Call `create_polynomial` for `poly1` and `poly2`.
+   - Display `poly1` and `poly2` using `show`.
+   - Add `poly1` and `poly2` using `polyadd` to obtain `poly_sum`.
+   - Display `poly_sum` using `show`.
+
+8. End.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

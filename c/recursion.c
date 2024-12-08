@@ -1,3 +1,55 @@
+/*
+Pseudocode for Menu-Driven Program Using Recursion
+
+1. Factorial:
+   Function factorial(num):
+     - If `num == 0` or `num == 1`, return 1.
+     - Else, return `num * factorial(num - 1)`.
+
+2. Sum of First n Natural Numbers:
+   Function add(n):
+     - If `n == 1`, return 1.
+     - Else, return `n + add(n - 1)`.
+
+3. Exponentiation (x^y):
+   Function expo(x, y):
+     - If `y == 0`, return 1 (base case).
+     - If `y < 0`, return `1 / expo(x, -y)` (negative power case).
+     - Else, return `x * expo(x, y - 1)`.
+
+4. Fibonacci Series:
+   Function fibonacci(n):
+     - If `n == 0`, return 0 (first term).
+     - If `n == 1`, return 1 (second term).
+     - Else, return `fibonacci(n - 1) + fibonacci(n - 2)`.
+
+5. Greatest Common Divisor (GCD):
+   Function gcd(x, y):
+     - If `y == 0`, return `x`.
+     - Else, return `gcd(y, x % y)`.
+
+6. Main Menu-Driven Program:
+   - Initialize `choice = 1`.
+   - While `choice != 0`:
+     - Display menu options:
+       1. Factorial.
+       2. Sum up-to n natural numbers.
+       3. Fibonacci series up-to n terms.
+       4. GCD of two numbers.
+       5. Exponentiation (a^b).
+       0. Exit.
+     - Read user input into `choice`.
+     - Based on `choice`, perform the following operations:
+       - Case 1: Input a number `x` and print its factorial using `factorial(x)`.
+       - Case 2: Input a number `x` and print the sum of first `x` natural numbers using `add(x)`.
+       - Case 3: Input a number `x` and print the first `x` terms of the Fibonacci series using `fibonacci(i)` in a loop.
+       - Case 4: Input two numbers `x` and `y` and print their GCD using `gcd(x, y)`.
+       - Case 5: Input base `x` and power `y`, and print `x^y` using `expo(x, y)`.
+       - Case 0: Exit the program.
+       - Default: Print "Invalid Choice".
+   - End the program.
+*/
+
 #include <stdio.h>
 
 int factorial(int num)
