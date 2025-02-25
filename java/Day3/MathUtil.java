@@ -1,3 +1,4 @@
+package Day3;
 /*
  * Question 2: Static Methods
 Problem Statement:

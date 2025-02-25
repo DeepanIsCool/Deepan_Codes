@@ -1,3 +1,4 @@
+package Day3;
 /*
  * Question 3: Static Block
 Problem Statement:

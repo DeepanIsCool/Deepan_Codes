@@ -1,3 +1,4 @@
+package Day3;
 /*
  * Question 1: Static Variables
 Problem Statement:
